@@ -1,0 +1,38 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+;THE VARIABLE WHICH ARE DECLARED
+
+ 
+    NUM DB 49
+    CHAR DB 48
+    MSG DB "MY NAME IS AVIJIT"
+.CODE
+;Code statement
+
+MAIN PROC
+    ;INT MAIN
+    ;CODE STATEMENT
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    MOV AH, 2
+    MOV DL, NUM;DL FOR PRINTING  
+    INT 21H     
+    
+    ;FOR NEW LINE
+    MOV AH, 2
+    MOV DL , 0AH
+    INT 21H
+    INT DL.0DH
+    INT 21H
+    
+    MOV AH,2
+    MOV DL, CHAR
+    INT 21H
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+    
+END MAIN;return 0
